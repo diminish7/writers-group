@@ -2,13 +2,10 @@ require:
   - rubocop-rails
   - rubocop-rspec
 
+Layout/LineLength:
+  Max: 100
+
 Layout/SpaceAroundMethodCallOperator:
-  Enabled: true
-
-Lint/RaiseException:
-  Enabled: true
-
-Lint/StructNewOverride:
   Enabled: true
 
 Style/ExponentialNotation:
@@ -23,15 +20,18 @@ Style/HashTransformKeys:
 Style/HashTransformValues:
   Enabled: true
 
+Lint/RaiseException:
+  Enabled: true
+
+Lint/StructNewOverride:
+  Enabled: true
+
+Rails/RakeEnvironment:
+  Enabled: false
+
 Style/Documentation:
   Exclude:
     - app/**/*
     - config/application.rb
     - db/**/*
     - spec/**/*
-
-Metrics/LineLength:
-  Max: 100
-
-Rails/RakeEnvironment:
-  Enabled: false

@@ -1,16 +1,35 @@
-// This file is automatically compiled by Webpack, along with any other files
-// present in this directory. You're encouraged to place your actual application logic in
-// a relevant structure within app/javascript and only use these pack files to reference
-// that code so it'll be compiled.
+/* eslint no-console: 0 */
 
-require('@rails/ujs').start();
-require('@rails/activestorage').start();
-require('channels'); // eslint-disable-line import/no-unresolved
-require('bootstrap'); // eslint-disable-line import/no-unresolved
+import Vue from 'vue/dist/vue.esm';
+import VueI18n from 'vue-i18n';
+import router from '../src/routes';
+import Layout from '../src/components/shared/layout.vue';
 
-// Uncomment to copy all static images under ../images to the output folder and reference
-// them with the image_pack_tag helper in views (e.g <%= image_pack_tag 'rails.png' %>)
-// or the `imagePath` JavaScript helper below.
-//
-// const images = require.context('../images', true)
-// const imagePath = (name) => images(name, true)
+Vue.use(VueI18n);
+const i18n = new VueI18n({
+  locale: 'en',
+  messages: {
+    en: {
+      errors: {
+        notFound: '🤷 Sorry, we couldn\'t find the page you were looking for...',
+        internalServerError: '😨 Uh oh! Something went wrong...',
+      },
+      site: {
+        title: 'Writers Group',
+        login: 'Log In',
+        logout: 'Log Out',
+      },
+      welcome: 'Welcome!',
+    },
+  },
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+  new Vue({ // eslint-disable-line no-new
+    i18n,
+    router,
+    components: {
+      Layout,
+    },
+  }).$mount('#app');
+});
