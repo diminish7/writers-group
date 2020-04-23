@@ -8,6 +8,40 @@ Layout/LineLength:
 Layout/SpaceAroundMethodCallOperator:
   Enabled: true
 
+Lint/RaiseException:
+  Enabled: true
+
+Lint/StructNewOverride:
+  Enabled: true
+
+Metrics/AbcSize:
+  Max: 20
+
+Metrics/BlockLength:
+  Max: 30
+  Severity: refactor
+  Exclude:
+    - spec/**/*
+
+Metrics/MethodLength:
+  Max: 30
+  Severity: refactor
+  Exclude:
+    - db/**/*
+
+Rails/RakeEnvironment:
+  Enabled: false
+
+RSpec/MultipleExpectations:
+  Enabled: false
+
+Style/Documentation:
+  Exclude:
+    - app/**/*
+    - config/application.rb
+    - db/**/*
+    - spec/**/*
+
 Style/ExponentialNotation:
   Enabled: true
 
@@ -19,19 +53,3 @@ Style/HashTransformKeys:
 
 Style/HashTransformValues:
   Enabled: true
-
-Lint/RaiseException:
-  Enabled: true
-
-Lint/StructNewOverride:
-  Enabled: true
-
-Rails/RakeEnvironment:
-  Enabled: false
-
-Style/Documentation:
-  Exclude:
-    - app/**/*
-    - config/application.rb
-    - db/**/*
-    - spec/**/*

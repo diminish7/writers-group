@@ -22,7 +22,9 @@ gem 'jbuilder', '~> 2.7'
 gem 'bootsnap', '>= 1.4.2', require: false
 
 gem 'brakeman', '~> 4.8'
-
+gem 'devise', '~> 4.7'
+gem 'devise-token_authenticatable', '~> 1.1'
+gem 'graphql', '~> 1.10'
 gem 'material_design_icons', '~> 4.1'
 
 group :development, :test do
@@ -30,6 +32,7 @@ group :development, :test do
   gem 'byebug', platforms: %i[mri]
   gem 'erb_lint', '= 0.0.32'
   gem 'factory_bot_rails', '~> 5.1'
+  gem 'faker', '~> 2.11'
   gem 'rspec-rails', '~> 4.0'
   gem 'rubocop', '= 0.82.0'
   gem 'rubocop-rails', '~> 2.5'
@@ -38,6 +41,11 @@ end
 
 group :development do
   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
+  gem 'graphiql-rails', '~> 1.7'
   gem 'listen', '>= 3.0.5', '< 3.2'
   gem 'web-console', '>= 3.3.0'
+end
+
+group :test do
+  gem 'shoulda-matchers', '~> 4.3'
 end
