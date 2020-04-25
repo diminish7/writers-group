@@ -15,9 +15,9 @@
         </ul>
         <ul class="navbar-nav">
           <li class="nav-item">
-            <router-link to="/log_in" class="nav-link">
+            <router-link to="/sign_in" class="nav-link">
               <i class="mdi mdi-login" />
-              {{ $t('site.login') }}
+              {{ $t('site.sign_in') }}
             </router-link>
           </li>
         </ul>
