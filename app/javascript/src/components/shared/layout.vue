@@ -15,7 +15,7 @@
         </ul>
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a v-if="isSignedIn()" @click="signOut" href="/sign_out" class="nav-link">
+            <a v-if="isSignedIn" @click="performSignOut" href="/sign_out" class="nav-link">
               <i class="mdi mdi-logout" />
               {{ $t('site.signOut') }}
             </a>
@@ -33,14 +33,16 @@
 
 <script>
 import gql from 'graphql-tag';
+import { mapGetters, mapMutations } from 'vuex';
 
 export default {
   name: 'Layout',
+  computed: {
+    ...mapGetters(['isSignedIn']),
+  },
   methods: {
-    isSignedIn() {
-      return localStorage.getItem('authToken') !== null;
-    },
-    signOut(e) {
+    ...mapMutations(['signOut']),
+    performSignOut(e) {
       e.preventDefault();
 
       this.$apollo.mutate({
@@ -58,7 +60,7 @@ export default {
       });
     },
     clientSignOut() {
-      localStorage.removeItem('authToken');
+      this.signOut();
       this.$router.push('/sign_in');
     }
   },

@@ -10,7 +10,7 @@
         <label for="password">{{ $t('password') }}</label>
         <input v-model="password" type="password" id="password" class="form-control" />
         <button type="submit" class="btn btn-primary mt-2 form-control">
-          {{ $t('site.sign_in') }}
+          {{ $t('site.signIn') }}
         </button>
       </form>
     </div>
@@ -19,6 +19,7 @@
 
 <script>
 import gql from 'graphql-tag';
+import { mapMutations } from 'vuex';
 
 export default {
   name: 'SignIn',
@@ -30,6 +31,7 @@ export default {
     };
   },
   methods: {
+    ...mapMutations(['signIn']),
     submitForm(e) {
       e.preventDefault();
 
@@ -62,7 +64,7 @@ export default {
         const data = response.data.signIn;
 
         if (data.success) {
-          localStorage.setItem('authToken', data.user.authenticationToken);
+          this.signIn(data.user.authenticationToken);
           this.$router.push('/');
         } else {
           this.errors = data.errors;
