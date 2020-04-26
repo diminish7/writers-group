@@ -15,9 +15,13 @@
         </ul>
         <ul class="navbar-nav">
           <li class="nav-item">
-            <router-link to="/sign_in" class="nav-link">
+            <a v-if="isSignedIn()" @click="signOut" href="/sign_out" class="nav-link">
+              <i class="mdi mdi-logout" />
+              {{ $t('site.signOut') }}
+            </a>
+            <router-link v-else to="/sign_in" class="nav-link">
               <i class="mdi mdi-login" />
-              {{ $t('site.sign_in') }}
+              {{ $t('site.signIn') }}
             </router-link>
           </li>
         </ul>
@@ -26,3 +30,37 @@
     <slot/>
   </div>
 </template>
+
+<script>
+import gql from 'graphql-tag';
+
+export default {
+  name: 'Layout',
+  methods: {
+    isSignedIn() {
+      return localStorage.getItem('authToken') !== null;
+    },
+    signOut(e) {
+      e.preventDefault();
+
+      this.$apollo.mutate({
+        mutation: gql`
+          mutation signOut {
+            signOut(input: {}) {
+              success
+              errors
+            }
+          }
+        `,
+      }).finally(response => {
+        // Even if there's an error, we still want to sign the client out
+        this.clientSignOut();
+      });
+    },
+    clientSignOut() {
+      localStorage.removeItem('authToken');
+      this.$router.push('/sign_in');
+    }
+  },
+};
+</script>

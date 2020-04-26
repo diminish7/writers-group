@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-RSpec.describe Mutations::SignIn do
+RSpec.describe Mutations::SignIn, type: :graphql do
   include_context 'with GraphQL Result'
 
   subject(:result) do

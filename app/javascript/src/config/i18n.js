@@ -15,8 +15,8 @@ export default new VueI18n({
       password: 'Password',
       site: {
         title: 'Writers Group',
-        sign_in: 'Sign In',
-        sign_out: 'Sign Out',
+        signIn: 'Sign In',
+        signOut: 'Sign Out',
       },
       welcome: 'Welcome!',
     },
