@@ -61,7 +61,7 @@ export default {
     },
     clientSignOut() {
       this.signOut();
-      this.$router.push('/sign_in');
+      this.$router.push('/');
     }
   },
 };

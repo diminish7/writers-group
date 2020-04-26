@@ -1,6 +1,6 @@
 import Vue from 'vue/dist/vue.esm';
 import VueApollo from 'vue-apollo';
-import Vuex from 'vuex'
+import Vuex from 'vuex';
 
 import App from '../src/components/app.vue';
 

@@ -12,13 +12,22 @@ export default new VueI18n({
         notFound: '🤷 Sorry, we couldn\'t find the page you were looking for...',
         required: "{field} can't be blank",
       },
+      home: {
+        noGroups: "It doesn't look like you're a member of any writers groups yet. Would you like to create one?",
+        signInMessage: 'Already have an account?',
+        signIn: 'sign in',
+        registerMessage: 'Otherwise, take a moment to',
+        register: 'register',
+        registerSuffix: 'now!',
+      },
       password: 'Password',
       site: {
         title: 'Writers Group',
+        register: 'Register',
         signIn: 'Sign In',
         signOut: 'Sign Out',
       },
-      welcome: 'Welcome!',
+      welcome: 'Welcome to Writers Group!',
     },
   },
 });
