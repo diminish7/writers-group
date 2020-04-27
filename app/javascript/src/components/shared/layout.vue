@@ -61,7 +61,7 @@ export default {
     },
     clientSignOut() {
       this.signOut();
-      this.$router.push('/');
+      if (this.$route.name !== 'root_path') this.$router.push('/');
     }
   },
 };

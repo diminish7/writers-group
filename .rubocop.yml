@@ -32,6 +32,9 @@ Metrics/MethodLength:
 Rails/RakeEnvironment:
   Enabled: false
 
+RSpec/ExampleLength:
+  Max: 30
+
 RSpec/MultipleExpectations:
   Enabled: false
 

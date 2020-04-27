@@ -17,7 +17,7 @@
             </div>
             <div>
               {{ $t('home.registerMessage') }}
-              <router-link to="/registration">
+              <router-link to="/register">
                 <i class="mdi mdi-account-plus" />
                 {{ $t('home.register') }}
               </router-link>
